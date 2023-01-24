@@ -10,7 +10,7 @@ class Movie
 
     // movie properties
     public $duration;
-    public $categories;
+    public $genres;
     public $cast;
     public $score;
 
@@ -26,6 +26,26 @@ class Movie
     public function getFullID()
     {
         return $this->title . " (" . $this->release_year . ")";
+    }
+
+    public function addGenre($genre)
+    {
+        if (!in_array($genre, $this->genres)) {
+            $this->genres[] = $genre;
+        }
+    }
+
+    public function getGenres($divider)
+    {
+        $genresList = "";
+        foreach ($this->genres as $genre) {
+            $genresList .= $genre;
+            if (!is_null($divider)) {
+                $genresList .= $divider;
+            }
+            $genresList .= " ";
+        }
+        return $genresList;
     }
 
     // utilities
