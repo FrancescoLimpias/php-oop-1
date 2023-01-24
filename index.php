@@ -19,7 +19,7 @@ echo $CarsMovie->getFullID();
 echo "<br>-----------------------------<br>";
 
 // Movie add genre
-$CarsMovie->addGenre("animation");
-$CarsMovie->addGenre("adventure");
-$CarsMovie->addGenre("racing");
+$CarsMovie->addGenre(new Genre("animation"));
+$CarsMovie->addGenre(new Genre("adventure"));
+$CarsMovie->addGenre(new Genre("racing"));
 echo $CarsMovie->printGenres(",");

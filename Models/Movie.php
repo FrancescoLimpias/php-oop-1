@@ -1,5 +1,7 @@
 <?php
 
+require __DIR__ . "/Genre.php";
+
 class Movie
 {
 
@@ -29,7 +31,7 @@ class Movie
         return $this->title . " (" . $this->release_year . ")";
     }
 
-    public function addGenre($genre)
+    public function addGenre(Genre $genre)
     {
         if (!in_array($genre, $this->genres)) {
             $this->genres[] = $genre;
@@ -40,7 +42,7 @@ class Movie
     {
         $genresList = "Genres: ";
         foreach ($this->genres as $key => $genre) {
-            $genresList .= $genre;
+            $genresList .= $genre->getName();
             if (
                 !is_null($divider)
                 && $key !== array_key_last($this->genres)
