@@ -14,7 +14,7 @@ class MovieLibrary
     }
 
     // Properties
-    public function addMovie(Movie $movie)
+    public function add(Movie $movie)
     {
         $this->movies[] = $movie;
     }

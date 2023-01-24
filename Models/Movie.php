@@ -20,6 +20,7 @@ class Movie
         $this->title = $title;
         $this->release_year = $release_year;
         $this->production = $production;
+        $this->genres = [];
     }
 
     // properties
@@ -35,12 +36,15 @@ class Movie
         }
     }
 
-    public function getGenres($divider)
+    public function printGenres($divider)
     {
-        $genresList = "";
-        foreach ($this->genres as $genre) {
+        $genresList = "Genres: ";
+        foreach ($this->genres as $key => $genre) {
             $genresList .= $genre;
-            if (!is_null($divider)) {
+            if (
+                !is_null($divider)
+                && $key !== array_key_last($this->genres)
+            ) {
                 $genresList .= $divider;
             }
             $genresList .= " ";
